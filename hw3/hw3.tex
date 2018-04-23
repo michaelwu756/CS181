@@ -146,6 +146,59 @@ No they are not the same, as \(L_\text{one}\) does not contain the empty string 
 
 \section*{Problem 2}
 
+\paragraph{a)}
+
+A DFA for \(L_\text{two}\) is shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (S) at (0,0) {\(S\)};
+                        \node (A) at (1.732,1) {\(A\)};
+                        \draw[black, thick] (1.732,1) circle [radius=1.3em];
+                        \node (R) at (1.732,-1) {\(R\)};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-1.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (S);
+                        \path (S) edge node {\(1\)} (A);
+                        \path (S) edge [below left] node {\(0\)} (R);
+                        \path (A) edge [bend left] node {\(\Sigma\)} (R);
+                        \path (R) edge [bend left] node {\(\Sigma\)} (A);
+                \end{scope}
+        \end{tikzpicture}
+\end{center}
+The corresponding NFA for \(L_\text{two}\cdot L_\text{two}\) is shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (S) at (0,0) {\(S_1\)};
+                        \node (A) at (1.732,1) {\(A_1\)};
+                        \node (R) at (1.732,-1) {\(R_1\)};
+                        \node (S2) at (4,0) {\(S_2\)};
+                        \node (A2) at (5.732,1) {\(A_2\)};
+                        \draw[black, thick] (5.732,1) circle [radius=1.3em];
+                        \node (R2) at (5.732,-1) {\(R_2\)};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-1.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (S);
+                        \path (S) edge node {\(1\)} (A);
+                        \path (S) edge [below left] node {\(0\)} (R);
+                        \path (A) edge [bend left] node {\(\Sigma\)} (R);
+                        \path (R) edge [bend left] node {\(\Sigma\)} (A);
+                        \path (A) edge node {\(\epsilon\)} (S2);
+                        \path (S2) edge node {\(1\)} (A2);
+                        \path (S2) edge [below left] node {\(0\)} (R2);
+                        \path (A2) edge [bend left] node {\(\Sigma\)} (R2);
+                        \path (R2) edge [bend left] node {\(\Sigma\)} (A2);
+                \end{scope}
+        \end{tikzpicture}
+\end{center}
+
+\paragraph{b)}
+
+\(L_\text{two}\cdot L_\text{two}\) does not equal \(L_\text{two}\), since \(1\) is in \(L_{two}\) but not in \(L_\text{two}\cdot L_\text{two}\).
+
 \section*{Problem 3}
 
 \section*{Problem 4}
