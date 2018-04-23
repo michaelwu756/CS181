@@ -89,6 +89,61 @@ I also include the useless state \(1,S\) to illustrate the cartesian product of 
 
 \section*{Problem 1}
 
+\paragraph{a)}
+
+A DFA for \(L_\text{one}\) is shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (S) at (0,0) {\(S\)};
+                        \node (C) at (2,0) {\(C\)};
+                        \draw[black, thick] (2,0) circle [radius=1.3em];
+                        \node (AB) at (4,0) {\(AB\)};
+                        \node (Bl) at (0,2) {Block};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-1.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (S);
+                        \path (S) edge node {\(c\)} (C);
+                        \path (S) edge node {\(\{a,b\}\)} (Bl);
+                        \path (C) edge [loop above] node {\(c\)} (C);
+                        \path (C) edge [bend left] node {\(\{a,b\}\)} (AB);
+                        \path (AB) edge [bend left] node {\(c\)} (C);
+                        \path (AB) edge [loop above] node {\(\{a,b\}\)} (AB);
+                \end{scope}
+        \end{tikzpicture}
+\end{center}
+The corresponding NFA for \(L_\text{one}^*\) is shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (Ep) at (-2,0) {\(\epsilon\)};
+                        \draw[black, thick] (-2,0) circle [radius=1.3em];
+                        \node (S) at (0,0) {\(S\)};
+                        \node (C) at (2,0) {\(C\)};
+                        \draw[black, thick] (2,0) circle [radius=1.3em];
+                        \node (AB) at (4,0) {\(AB\)};
+                        \node (Bl) at (0,2) {Block};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-3.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (Ep);
+                        \path (Ep) edge node {\(\epsilon\)} (S);
+                        \path (S) edge [bend left] node {\(c\)} (C);
+                        \path (C) edge [bend left] node {\(\epsilon\)} (S);
+                        \path (S) edge node {\(\{a,b\}\)} (Bl);
+                        \path (C) edge [loop above] node {\(c\)} (C);
+                        \path (C) edge [bend left] node {\(\{a,b\}\)} (AB);
+                        \path (AB) edge [bend left] node {\(c\)} (C);
+                        \path (AB) edge [loop above] node {\(\{a,b\}\)} (AB);
+                \end{scope}
+        \end{tikzpicture}
+\end{center}
+
+\paragraph{b)}
+
+No they are not the same, as \(L_\text{one}\) does not contain the empty string \(\epsilon\), while \(L_\text{one}^*\) does.
+
 \section*{Problem 2}
 
 \section*{Problem 3}
