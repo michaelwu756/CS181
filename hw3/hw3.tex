@@ -18,6 +18,75 @@ state language.
 
 \section*{Problem 0}
 
+The first DFA can be made as shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (Bl) at (0,0) {Block};
+                        \node (S) at (2,0) {\(S\)};
+                        \node (B) at (4,0) {\(B\)};
+                        \draw[black, thick] (4,0) circle [radius=1.3em];
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (2,-1.5) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (S);
+                        \path (S) edge node [above] {\(b\)} (B);
+                        \path (S) edge node [above] {\(a\)} (Bl);
+                        \path (B) edge [loop right] node {\(\Sigma\)} (B);
+                        \path (Bl) edge [loop left] node {\(\Sigma\)} (Bl);
+               \end{scope}
+        \end{tikzpicture}
+\end{center}
+The second DFA can be made as shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (S) at (0,0) {\(S\)};
+                        \draw[black, thick] (0,0) circle [radius=1.3em];
+                        \draw[black, thick] (2,0) circle [radius=1.3em];
+                        \node (1) at (2,0) {\(1\)};
+                        \node (Bl) at (4,0) {Block};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-1.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (S);
+                        \path (S) edge node {\(a\)} (1);
+                        \path (S) edge [loop below] node {\(b\)} (S);
+                        \path (1) edge node {\(a\)} (Bl);
+                        \path (1) edge [loop below] node {\(b\)} (1);
+                        \path (Bl) edge [loop right] node {\(\Sigma\)} (Bl);
+               \end{scope}
+        \end{tikzpicture}
+\end{center}
+Their intersection should be as shown below.
+\begin{center}
+        \begin{tikzpicture}
+                \begin{scope}[auto, every node/.style={thick, draw,circle,minimum size=3em,inner sep=1}]
+                        \node (SS) at (0,0) {\(S,S\)};
+                        \node (SB) at (0,3) {\(S,B\)};
+                        \draw[black, thick] (0,3) circle [radius=1.3em];
+                        \node (1S) at (3,0) {\(1,S\)};
+                        \node (1B) at (3,3) {\(1,B\)};
+                        \draw[black, thick] (3,3) circle [radius=1.3em];
+                        \node (Bl) at (4.5, 1.5) {Block};
+                \end{scope}
+                \node [draw=none, inner sep=0pt] (I) at (-1.5,0) {};
+                \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
+                        \path (I) edge (SS);
+                        \path (SS) edge node {\(b\)} (SB);
+                        \path (SB) edge node {\(a\)} (1B);
+                        \path (SB) edge [loop above] node {\(b\)} (SB);
+                        \path (1B) edge [loop above] node {\(b\)} (1B);
+                        \path (SS) edge node {\(a\)} (Bl);
+                        \path (1B) edge node {\(a\)} (Bl);
+                        \path (Bl) edge [loop above] node {\(\Sigma\)} (Bl);
+                        \path (1S) edge node [below right] {\(\Sigma\)} (Bl);
+               \end{scope}
+        \end{tikzpicture}
+\end{center}
+Here I have simplified a bit by grouping all blocking states into a single one, as in an intersection if any DFA blocks then their intersection will block.
+I also include the useless state \(1,S\) to illustrate the cartesian product of the two DFAs.
+
 \section*{Problem 1}
 
 \section*{Problem 2}
