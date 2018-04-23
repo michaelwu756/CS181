@@ -205,6 +205,25 @@ The corresponding NFA for \(L_\text{two}\cdot L_\text{two}\) is shown below.
 
 \section*{Problem 4}
 
+\paragraph{a)}
+
+\[
+        \begin{array}{c|c|c}
+                \text{Current State} & \text{Word} & \text{Next State}\\
+                \hline
+                q_\text{start} & w_1 = ab & q_2\\
+                q_2 & w_2 = \epsilon & q_1\\
+                q_1 & w_3 = ab & q_1\\
+                q_1 & w_4 = aa & q_2\\
+                q_2 & w_5 = ba & q_\text{accept}
+        \end{array}
+\]
+
+\paragraph{b)}
+
+This is false, as the string \(abab\) will be accepted. First \(ab\) will cause a move from \(q_\text{start}\) to \(q_2\), then \(ab\) will cause
+a move into \(q_\text{accept}\). This string has more than one \(b\) and an even number of \(a\)'s, proving this statement is false.
+
 \section*{Problem 5}
 
 \end{document}
