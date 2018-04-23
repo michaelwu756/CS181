@@ -226,4 +226,17 @@ a move into \(q_\text{accept}\). This string has more than one \(b\) and an even
 
 \section*{Problem 5}
 
+Assume for contradiction that this language
+\[L=\{0^i1^j0^k | i,j,k\geq0 \wedge k=|i-j|\}\]
+is finite state. Then by the pumping lemma if a language is finite state then there exists some \(p\) such that for any string \(s\) in
+\(L\) with \(|s|>p\), \(s\) can be split into three strings \(x\), \(y\), and \(z\) where \(s=xyz\), \(|y|\geq 1\), \(|xy|\leq p\), and \(xy^*z\subseteq L\).
+Take the string \(0^p1^p\in L\), and note that \(xy\) must be a string made entirely of \(0\)'s, since \(|xy|\leq p\). Additionally, \(y\) must be in \(0^+\),
+since \(|y|\geq 1\). Let \(x=0^a\) and \(y=0^b\) for some constants \(a\geq 0\) and \(b>0\). Then \(z\) must be \(0^{p-a-b}1^p\). By the pumping lemma \(xy^*z\subseteq L\),
+so
+\[\{0^a(0^b)^*0^{p-a-b}1^p|a\geq0 \wedge b>0\}\subseteq L\]
+This can be stated equivalently as
+\[\{0^{p-b}0^{xb}1^p|\forall x\in\{0,1,2,\ldots\} \wedge b>0\}\subseteq L\]
+When \(x=2\), this means that the string \(0^{p+b}1^p\in L\) for some constant \(b>0\). But in the definition of \(L\), this string has the parameters
+\(i=p+b\), \(j=p\), and \(k=0\). Thus \(k\neq |i-j|\) and \(0^{p+b}1^p\notin L\). This is a contradiction, so \(L\) cannot be finite state.
+
 \end{document}
