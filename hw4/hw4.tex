@@ -51,28 +51,33 @@ finite state machine.
                         \node (0) at (0,0) {};
                         \draw[black, thick] (0,0) circle [radius=0.7em];
                         \node (1) at (1.5,0) {};
-                        \node (2) at (3,0) {};
-                        \node (3) at (4.5,0) {};
-                        \node (4) at (6,0) {};
-                        \draw[black, thick] (6,0) circle [radius=0.7em];
-                        \node (5) at (7.5,0) {};
-                        \node (6) at (9,0) {};
-                        \draw[black, thick] (9,0) circle [radius=0.7em];
+                        \node (2) at (3,0.75) {};
+                        \draw[black, thick] (3,0.75) circle [radius=0.7em];
+                        \node (3) at (4.5,0.75) {};
+                        \node (4) at (6,0.75) {};
+                        \draw[black, thick] (6,0.75) circle [radius=0.7em];
+                        \node (5) at (3,-0.75) {};
+                        \draw[black, thick] (3,-0.75) circle [radius=0.7em];
+                        \node (6) at (4.5,-0.75) {};
+                        \node (7) at (6,-0.75) {};
+                        \draw[black, thick] (6,-0.75) circle [radius=0.7em];
                 \end{scope}
                 \node [draw=none, inner sep=0pt] (I) at (-1.25,0) {};
                 \begin{scope}[auto, every node/.style={minimum size=1em,inner sep=1}, every path/.style={thick, ->, >=stealth}]
                         \path (I) edge (0);
                         \path (0) edge node {\(\epsilon\)} (1);
-                        \path (1) edge node {\(\epsilon\)} (2);
-                        \path (2) edge node {\(a\)} (3);
-                        \path (3) edge node {\(\epsilon\)} (4);
-                        \path (4) edge node {\(\epsilon\)} (5);
-                        \path (5) edge node {\(b\)} (6);
-                        \path (3) edge [bend right=60] node [above] {\(\epsilon\)} (2);
-                        \path (6) edge [bend right=60] node [above] {\(\epsilon\)} (5);
-                        \path (1) edge [bend right=67.5n] node [below] {\(\epsilon\)} (4);
-                        \path (4) edge [bend right=67.5] node [above] {\(\epsilon\)} (1);
-                        \path (6) edge [bend right=75] node [above] {\(\epsilon\)} (1);
+                        \path (1) edge node [above] {\(\epsilon\)} (2);
+                        \path (1) edge node [above] {\(\epsilon\)} (5);
+                        \path (2) edge node {\(\epsilon\)} (3);
+                        \path (3) edge node {\(0\)} (4);
+                        \path (5) edge node {\(\epsilon\)} (6);
+                        \path (6) edge node {\(1\)} (7);
+                        \path (4) edge [bend right=60] node [above] {\(\epsilon\)} (3);
+                        \path (7) edge [bend right=60] node [above] {\(\epsilon\)} (6);
+                        \path (2) edge [bend right=45] node [above] {\(\epsilon\)} (1);
+                        \path (4) edge [bend right=90] node [above] {\(\epsilon\)} (1);
+                        \path (5) edge [bend left=45] node [below] {\(\epsilon\)} (1);
+                        \path (7) edge [bend left=90] node [below] {\(\epsilon\)} (1);
                 \end{scope}
         \end{tikzpicture}
 \end{center}
