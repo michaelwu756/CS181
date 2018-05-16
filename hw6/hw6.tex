@@ -12,11 +12,11 @@
 \paragraph{a)}
 
 \begin{align*}
-G&=(V,\Sigma,R,S)\\
-V&=\{A,B\}\\
-R&=\{A\rightarrow \text{a}A\text{d} \mid B,\\
-&\hphantom{==}B\rightarrow \text{b}B\text{c} \mid \epsilon\}\\
-S&=A
+        G&=(V,\Sigma,R,S)\\
+        V&=\{A,B\}\\
+        R&=\{A\rightarrow \text{a}A\text{d} \mid B,\\
+        &\hphantom{==}B\rightarrow \text{b}B\text{c} \mid \epsilon\}\\
+        S&=A
 \end{align*}
 This context free grammar works in two stages. In the first, we start with the symbol \(A\), which can produce matching pairs of a symbols and d symbols.
 It recurses into itself, so that an arbitrary number \(n\geq0\) of matching a's and d's can be generated. There is no production rule for \(\epsilon\) in this first
