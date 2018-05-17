@@ -65,6 +65,13 @@ contradiction, and so \(L_1\) cannot be finite state.
 
 Assume for contradiction that \(L_2\) is a context free language. Then by the pumping lemma for context free languages, there exists some
 \(p\) such that \(\forall s\in L_2\) with \(|s|\geq p\), \(s\) can be split into five substrings \(u\), \(v\), \(w\), \(x\), and \(y\) such that
-\(|vwx|\leq p\), \(|vx|\geq 1\), and \(\forall n\geq 0\) we have that \(uv^nwx^ny\in L_2\). Consider the string \(w=t\#t^R\#t\).
+\(|vwx|\leq p\), \(|vx|\geq 1\), and \(\forall n\geq 0\) we have that \(uv^nwx^ny\in L_2\). Consider the string \(s=t\#t^R\#t\) in \(L_2\), with \(|t|\geq p\).
+Then when attempting to split \(s\), \(vwx\) can only contain one or zero \#'s because \(|vwx|\leq p\), which means \(vx\) can contain only one or zero \#'s.
+If \(vx\) contains one \#, then \(uv^nwx^ny\) would contain three \#'s for \(n=2\), and thus \(uv^nwx^ny\) would not be in \(L_2\) since it does not fit the
+format of \(t\#t^R\#t\). If \(vx\) contains zero \#'s, then \(w\) contains either one or zero \#'s. If \(w\) contains zero \#'s and \(vx\) contains zero \#'s,
+then \(v\) and \(x\) must lie entirely within one \(t\) or within the \(t^R\). Thus \(uv^nwx^ny\) will be in the form \(r\#t^R\#t\), \(t\#r^R\#t\), or \(t\#t^R\#r\)
+with \(r\neq t\) for \(n\geq 2\). Then \(uv^nwx^ny\) would not be in \(L_2\). If \(w\) contains one \#, then \(uv^nwx^ny\) will be in the form \(q\#r^R\#t\) or
+\(t\#q^R\#r\) with \(q\neq t\) and \(r\neq t\) for \(n\geq 2\). Then \(uv^nwx^ny\) would not be in \(L_2\). So there exists some string \(s\) such that \(s\) cannot be
+split into five substrings that make the conditions of the pumping lemma hold. This is a contradiction, and thus \(L_2\) is not a context free language.
 
 \end{document}
