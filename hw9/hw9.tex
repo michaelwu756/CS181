@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{tikz}
+\begin{document}
+\title{Computer Science 181, Homework 9}
+\date{June 5th, 2018}
+\author{Michael Wu\\UID: 404751542}
+\maketitle
+
+\section*{Problem 1}
+
+The leftmost reduction show below has an unforced handle.
+\begin{center}
+        \underline{a}\\
+        \underline{R}\\
+        S
+\end{center}
+The first line is an unforced handle, since the leftmost reduction for the string shown below begins with the same prefix as the previous string
+up until the first character, but has a different first handle.
+\begin{center}
+        \underline{a;}a\\
+        L\underline{a}\\
+        L\underline{R}\\
+        \underline{LS}\\
+        S
+\end{center}
+
+\section*{Problem 2}
+
+\section*{Problem 3}
+
+For a string \(w\) not in \(L\), the machine \(M\) may not halt and reject since if \(L\) is recursively enumerable and not recursive. It may
+loop on \(w\). Then the machine \(\bar{M}\) must accept \(w\), but will never do so in this construction because \(\bar{M}\) would not halt
+and accept on \(w\). Thus this construction of \(\bar{M}\) is not recursively enumerable, and cannot be used to show that recursively
+enumerable languages are closed under complementation.
+
+\section*{Problem 4}
+
+We want to simulate the turing machine and the DFA on every possible input string. Since the set of input strings is
+countably infinite, map each possible input string string to an index to generate a sequence of strings \(s_1, s_2, s_3,\ldots\) and
+then do the following.
+\begin{enumerate}
+        \item Begin at iteration \(i=1\) with string index \(j=1\).
+        \item Run the DFA on the string \(s_j\) and the turing machine for \(i\) steps on \(s_j\).
+        \item If both accept, then accept.
+        \item If \(j=i\), increase \(i\) by one, reset the string index \(j\) to \(1\), and go to step two.
+        \item Otherwise increment the string index \(j\) by one and go back to step two.
+\end{enumerate}
+This will have the effect of inputting every possible input string into the DFA and the turing machine and checking to see if they both accept.
+Note that this is a recursively enumerable language, as this procedure will never halt on a string not in the language.
+
+\end{document}
