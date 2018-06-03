@@ -34,17 +34,17 @@ enumerable languages are closed under complementation.
 
 \section*{Problem 4}
 
-We want to simulate the turing machine and the DFA on every possible input string. Since the set of input strings is
+We want to simulate the Turing machine and the DFA on every possible input string. Since the set of input strings is
 countably infinite, map each possible input string string to an index to generate a sequence of strings \(s_1, s_2, s_3,\ldots\) and
 then do the following.
 \begin{enumerate}
         \item Begin at iteration \(i=1\) with string index \(j=1\).
-        \item Run the DFA on the string \(s_j\) and the turing machine for \(i\) steps on \(s_j\).
+        \item Run the DFA on the string \(s_j\) and the Turing machine for \(i\) steps on \(s_j\).
         \item If both accept, then accept.
         \item If \(j=i\), increase \(i\) by one, reset the string index \(j\) to \(1\), and go to step two.
         \item Otherwise increment the string index \(j\) by one and go back to step two.
 \end{enumerate}
-This will have the effect of inputting every possible input string into the DFA and the turing machine and checking to see if they both accept.
+This will have the effect of inputting every possible input string into the DFA and the Turing machine and checking to see if they both accept.
 Note that this is a recursively enumerable language, as this procedure will never halt on a string not in the language.
 
 \end{document}
