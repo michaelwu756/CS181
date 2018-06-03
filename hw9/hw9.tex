@@ -25,6 +25,10 @@ up until the first character, but has a different first handle.
 
 \section*{Problem 2}
 
+\(L_2\) is a recursive language. This is because we are given a finite input string, which means that we have a finite graph. Starting from the start
+node, we can travel along unexplored edges until we can no longer reach any new nodes. At this point, the Turing machine can halt and accept or reject
+depending on if the end node has been explored. So for any input string, a Turing machine for \(L_2\) will halt and not loop. Thus \(L_2\) is recursive.
+
 \section*{Problem 3}
 
 For a string \(w\) not in \(L\), the machine \(M\) may not halt and reject since if \(L\) is recursively enumerable and not recursive. It may
